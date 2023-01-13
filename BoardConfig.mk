@@ -112,6 +112,7 @@ TARGET_RECOVERY_DEVICE_MODULES += \
     vendor.display.config@1.0 \
     vendor.display.config@2.0
 TARGET_RECOVERY_FSTAB := $(COMMON_PATH)/recovery.fstab
+TARGET_OTA_ASSERT_DEVICE := AI2202
 
 # Use mke2fs to create ext4 images
 TARGET_USES_MKE2FS := true
@@ -167,6 +168,12 @@ RECOVERY_LIBRARY_SOURCE_FILES += \
     $(TARGET_OUT_SYSTEM_EXT_SHARED_LIBRARIES)/vendor.display.config@1.0.so \
     $(TARGET_OUT_SYSTEM_EXT_SHARED_LIBRARIES)/vendor.display.config@2.0.so
 
+TW_Y_OFFSET := 25
+TW_H_OFFSET := -25
+TW_CUSTOM_BATTERY_POS := left
+TW_CUSTOM_CPU_POS := right
+TW_STATUS_ICONS_ALIGN := center
+
 # TWRP Debug Flags
 #TWRP_EVENT_LOGGING := true
 TARGET_USES_LOGD := true
@@ -198,6 +205,18 @@ ifneq ($(wildcard device/common/version-info/.),)
     ifeq ($(CUSTOM_TWRP_VERSION),)
         CUSTOM_TWRP_VERSION := $(shell date +%Y%m%d)-01
     endif
+endif
+#
+# end local build flags
+#
+
+#
+# For local builds only
+#
+# Custom TWRP Versioning
+ifneq ($(wildcard device/common/version-info/.),)
+    # device version is optional - the default value is "0" if nothing is set in device tree
+    CUSTOM_TWRP_DEVICE_VERSION := 0
 endif
 #
 # end local build flags

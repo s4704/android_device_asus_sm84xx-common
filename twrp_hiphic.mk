@@ -47,9 +47,6 @@ PRODUCT_BRAND := $(BOARD_VENDOR)
 PRODUCT_MODEL := $(shell echo $(PRODUCT_BRAND) | tr  '[:lower:]' '[:upper:]')_$(PRODUCT_DEVICE)
 PRODUCT_MANUFACTURER := $(PRODUCT_BRAND)
 
-# Common path for device trees
-COMMON_PATH := device/$(PRODUCT_BRAND)/$(COMMON_SOC)-common
-
 # Device path for OEM device tree
 DEVICE_PATH := device/$(PRODUCT_BRAND)/$(PRODUCT_DEVICE)
 

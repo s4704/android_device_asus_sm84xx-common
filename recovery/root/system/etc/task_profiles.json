@@ -202,19 +202,7 @@
         }
       ]
     },
-    {
-      "Name": "Dex2oatPerformance",
-      "Actions": [
-        {
-          "Name": "JoinCgroup",
-          "Params":
-          {
-            "Controller": "cpu",
-            "Path": "dex2oat"
-          }
-        }
-      ]
-    },
+
     {
       "Name": "CpuPolicySpread",
       "Actions": [
@@ -528,7 +516,7 @@
           "Name": "SetTimerSlack",
           "Params":
           {
-            "Slack": "20000000"
+            "Slack": "10000000"
           }
         }
       ]
@@ -709,7 +697,7 @@
     },
     {
       "Name": "Dex2OatBootComplete",
-      "Profiles": [ "Dex2oatPerformance", "LowIoPriority", "TimerSlackHigh" ]
+      "Profiles": [ "SCHED_SP_BACKGROUND" ]
     }
   ]
 }

@@ -110,7 +110,7 @@ PRODUCT_PACKAGES += \
 
 # Soong namespaces
 PRODUCT_SOONG_NAMESPACES += \
-    $(COMMON_PATH)
+    $(DEVICE_PATH)
 
 #namespace definition for librecovery_updater
 #differentiate legacy 'sg' or 'bsg' framework
@@ -121,7 +121,7 @@ SOONG_CONFIG_ufsbsg_ufsframework := bsg
 
 # OEM otacerts
 PRODUCT_EXTRA_RECOVERY_KEYS += \
-    $(COMMON_PATH)/security/otacert
+    $(DEVICE_PATH)/security/otacert
 
 # System AVB
 BOARD_AVB_VBMETA_SYSTEM := system
